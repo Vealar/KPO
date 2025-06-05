@@ -1,0 +1,72 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.3'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'hse.restaraunt'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    implementation 'org.springframework.boot:spring-boot-starter'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'//1
+    implementation 'org.springframework.boot:spring-boot-starter-web'//1
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+
+    annotationProcessor 'org.projectlombok:lombok'
+    compileOnly 'org.projectlombok:lombok'
+
+    implementation group: 'org.liquibase', name: 'liquibase-core', version: '4.24.0'
+    implementation("org.liquibase:liquibase-core")
+
+    implementation 'org.postgresql:postgresql'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'//
+    runtimeOnly("org.postgresql:postgresql")//1
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    // PostgreSQL driver
+    runtimeOnly 'org.postgresql:postgresql'
+    // Liquibase
+    implementation 'org.liquibase:liquibase-core'
+    // Kotlin Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3'
+    // Spring Boot Starter Web
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Jackson module for Kotlin
+    implementation 'com.fasterxml.jackson.module:jackson-module-kotlin'
+    // Kotlin Reflect
+    implementation 'org.jetbrains.kotlin:kotlin-reflect'
+    // Lombok (Compile Only)
+    compileOnly 'org.projectlombok:lombok'
+    // Spring Boot Starter WebFlux
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    // Reactor Kotlin Extensions
+    implementation 'io.projectreactor.kotlin:reactor-kotlin-extensions'
+    // Kotlin Coroutines Reactor
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-reactor'
+    // Spring Boot Starter Test
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // Reactor Test
+    testImplementation 'io.projectreactor:reactor-test'
+}
+tasks.named('test') {
+    useJUnitPlatform()
+}

@@ -1,0 +1,13 @@
+databaseChangeLog:
+  - include:
+      file: users.sql
+      relativeToChangelogFile: true
+  - include:
+      file: cuisine.sql
+      relativeToChangelogFile: true
+  - include:
+      file: orders.sql
+      relativeToChangelogFile: true
+  - include:
+      file: order_dish.sql
+      relativeToChangelogFile: true
