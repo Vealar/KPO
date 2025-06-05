@@ -1,0 +1,2 @@
+Программа запускается с помошью sudo docker-compose -f docker-compose.yaml up
+Реализовано 2 микросервиса используя Spring Boot, в каждом своя bd на postgresql, управление бд с помощью liquibase, авторизация выполнена с помощью получения jwt токенов и spring sequrity

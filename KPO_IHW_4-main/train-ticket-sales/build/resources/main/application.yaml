@@ -1,0 +1,21 @@
+server:
+    port: 8083
+spring:
+    liquibase:
+        enabled:
+            true
+        change-log: classpath:/db/changelog/db.changelog-master.yaml
+        parameters:
+            searchPath: classpath:/db/changelog
+    main:
+        banner-mode: off
+    datasource:
+        url: jdbc:postgresql://localhost:5434/ticket_sales_db
+        username: postgres_user
+        password: postgres_password
+        driver-class-name: org.postgresql.Driver
+
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: none

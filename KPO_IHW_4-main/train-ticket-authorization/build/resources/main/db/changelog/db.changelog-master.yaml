@@ -1,0 +1,15 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-user
+      author: alexander
+      changes:
+        - sqlFile:
+            path: /changeset/create-table-user.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: create-table-session
+      author: alexander
+      changes:
+        - sqlFile:
+            path: /changeset/create-table-session.sql
+            relativeToChangelogFile: true

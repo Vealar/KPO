@@ -1,0 +1,51 @@
+version: "3.0"
+services:
+  ticket_authorization_db_pg:
+    image: postgres:15
+    container_name: ticket_authorization_db_container
+    environment:
+      - POSTGRES_USER=postgres_user
+      - POSTGRES_PASSWORD=postgres_password
+      - POSTGRES_DB=ticket_authorization_db
+    ports:
+      - 5433:5432
+  ticket_sales_db_pg:
+    image: postgres:15
+    container_name: ticket_sales_db_container
+    environment:
+      - POSTGRES_USER=postgres_user
+      - POSTGRES_PASSWORD=postgres_password
+      - POSTGRES_DB=ticket_sales_db
+    ports:
+      - 5434:5432
+  ticket_authorization_app:
+    image: ticket_authorization_app:1.0
+    build:
+      context: train-ticket-authorization
+      dockerfile: Dockerfile
+    container_name: ticket_authorization_app_container
+    ports:
+      - 8082:8082
+    environment:
+      - SERVER_PORT=8082
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ticket_authorization_db_pg:5432/ticket_authorization_db
+      - SPRING_DATASOURCE_USERNAME=postgres_user
+      - SPRING_DATASOURCE_PASSWORD=postgres_password
+    depends_on:
+      - ticket_authorization_db_pg
+  ticket_sales_app:
+    image: ticket_sales_app:1.0
+    build:
+      context: train-ticket-sales
+      dockerfile: Dockerfile
+    container_name: ticket_sales_app_container
+    ports:
+      - 8083:8083
+    environment:
+      - SERVER_PORT=8083
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://ticket_sales_db_pg:5432/ticket_sales_db
+      - SPRING_DATASOURCE_USERNAME=postgres_user
+      - SPRING_DATASOURCE_PASSWORD=postgres_password
+    depends_on:
+      - ticket_sales_db_pg
+      - ticket_authorization_app

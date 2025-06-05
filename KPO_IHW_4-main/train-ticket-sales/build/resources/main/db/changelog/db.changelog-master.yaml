@@ -1,0 +1,22 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-table-station
+      author: alexander
+      changes:
+        - sqlFile:
+            path: /changeset/create-table-station.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: create-table-order
+      author: alexander
+      changes:
+        - sqlFile:
+            path: /changeset/create-table-order.sql
+            relativeToChangelogFile: true
+  - changeSet:
+      id: full-station
+      author: alexander
+      changes:
+        - sqlFile:
+            path: /changeset/full-station.sql
+            relativeToChangelogFile: true
