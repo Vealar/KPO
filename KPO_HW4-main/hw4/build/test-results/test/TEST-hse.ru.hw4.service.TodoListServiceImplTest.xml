@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="hse.ru.hw4.service.TodoListServiceImplTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-05-24T08:46:21" hostname="MacBook-Air-Aleksandr.local" time="0.603">
+  <properties/>
+  <testcase name="deleteNote_deleteNullTitle_throwsException()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.572"/>
+  <testcase name="deleteNote_simpleDelete_success()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.013"/>
+  <testcase name="addNote_addNullTitle_throwsException()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.001"/>
+  <testcase name="deleteNote_deleteNotExistTitle_throwsException()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.004"/>
+  <testcase name="findAllNotes_simpleTodoList_success()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.003"/>
+  <testcase name="addNote_simpleAdd_savesNote()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.002"/>
+  <testcase name="addNote_addDuplicate_throwsException()" classname="hse.ru.hw4.service.TodoListServiceImplTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
